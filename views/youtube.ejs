@@ -8,21 +8,87 @@
     <title>Document</title>
 </head>
 
-<!-- {
-    "id": "_VP373nOfO4",
-    "title": "Happy Private Service | Crime World Full Episode | Shemaroo Tv | Hindi Crime Stories",
-    "imgUrl": "https://i.ytimg.com/vi/_VP373nOfO4/mqdefault.jpg"
-} -->
-
 <body>
 
-    <% for(result of results.youtube) { %>
+    <div>
+        <h2>Youtube Search Results : </h2>
+        <% if(results.youtube.length === 0) {%>
+            <h2>No results found on youtube</h2>
+            <% } %>
 
-        <a href="https://www.youtube.com/watch?v=<%= result.id %> "><img src="<%= result.imgUrl %> " alt="Thumbnail"></a>
-        <p>
-            <%= result.title %>
-        </p>
-        <% } %>
+                <% for(let i = 0; i < results.youtube.length; i++) { %>
+
+                    <a href="https://www.youtube.com/watch?v=<%= results.youtube[i].id %> "><img
+                src="<%= results.youtube[i].imgUrl %> " alt="Thumbnail"></a>
+                    <p>
+                        <%= results.youtube[i].title %>
+                    </p>
+                    <% } %>
+    </div>
+    <div>
+        <h2>StackOverflow Search Results : </h2>
+        <% if(results.stackoverflow.length === 0) {%>
+            <h2>No results found on Stack Overflow</h2>
+            <% } %>
+
+                <% for(let i = 0; i < results.stackoverflow.length; i++) { %>
+                    <div>
+                        <a href="<%= results.stackoverflow[i].url %>">
+                            <%= results.stackoverflow[i].title %>
+                        </a>
+                        <p>
+                            tags :
+                            <% for(let tag of results.stackoverflow[i].tags) {%>
+                                <span><%= tag %> </span>
+                                <% } %>
+                        </p>
+                    </div>
+                    <% } %>
+    </div>
+
+    <div>
+        <h2>Google Search Results : </h2>
+        <% if(results.googleSearch.length === 0) {%>
+            <h2>No results found on Google</h2>
+            <% } %>
+
+                <% for(let i = 0; i < results.googleSearch.length; i++) { %>
+                    <div>
+                        <a href="<%= results.googleSearch[i].url %>">
+                            <%= results.googleSearch[i].title %>
+                        </a>
+                        <% if(results.googleSearch[i].description !== null){ %>
+                            <p>
+                                <%= results.googleSearch[i].description %>
+                            </p>
+                            <% } %>
+                    </div>
+                    <% } %>
+    </div>
+
+    <div>
+        <h2>Github Search Results : </h2>
+        <% if(results.github.length === 0) {%>
+            <h2>No results found on Github</h2>
+            <% } %>
+
+                <% for(let i = 0; i < results.github.length; i++) { %>
+                    <div>
+                        <a href="<%= results.github[i].url %>">
+                            <%= results.github[i].title %>
+                        </a>
+                        <% if(results.github[i].description !== null){ %>
+                            <p>
+                                <%= results.github[i].description.substring(0, 100) %>
+                            </p>
+                            <% } %>
+                    </div>
+                    <% } %>
+    </div>
+
+    <div>
+
+    </div>
 
 </body>
 
