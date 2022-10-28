@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path');
 const { youtube, stackoverflow, github, googleSearch } = require('./utility');
 const app = express();
-const port = 3000
+const port = process.env.PORT || 3000
 const results = require('./data')
 
 require('dotenv').config({ path: './TEST.env' })
@@ -21,10 +21,17 @@ app.get("/", (req, res) => {
 app.get("/search", async(req, res) => {
     const searchQuery = req.query.search_query
 
-    await youtube(searchQuery);
-    await stackoverflow(searchQuery)
-    await github(searchQuery)
-    await googleSearch(searchQuery)
+    let promises = []
+    const windows = [youtube, stackoverflow, github, googleSearch]
+    windows.forEach(window => {
+        promises.push(window(searchQuery))
+    })
+
+    await Promise.all(promises);
+    // await youtube(searchQuery);
+    // await stackoverflow(searchQuery)
+    // await github(searchQuery)
+    // await googleSearch(searchQuery)
 
     res.render('youtube', { results })
 })
