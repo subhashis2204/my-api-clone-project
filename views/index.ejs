@@ -6,16 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
 </head>
 
 <body>
-
-    <form action="/search" method="get">
-        <label for="search_query">Search Keyword</label>
-        <input type="text" id="search_query" name="search_query">
-        <button>Submit</button>
+    <form action="/search" class="search-bar">
+        <input type="search" name="search_query" pattern=".*\S.*" required>
+        <button class="search-btn" type="submit">
+            <span>Search</span>
+        </button>
     </form>
-
 </body>
 
 </html>

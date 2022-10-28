@@ -1,0 +1,11 @@
+.card-gt {
+    background-color: #fff;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.card-gt a {
+    font-weight: 500;
+    text-decoration: none;
+}

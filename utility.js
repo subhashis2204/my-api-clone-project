@@ -1,3 +1,5 @@
+const { timeDifferenceCalculator } = require("time-difference-calculator")
+
 let results = require('./data')
 const axios = require('axios')
 
@@ -15,13 +17,16 @@ module.exports.youtube = async(query_parameter) => {
     })
     const searchResults = response.data.items
     const youtubeData = searchResults.map(queryResult => {
+        const td = timeDifferenceCalculator(queryResult.snippet.publishTime)
         return {
             id: queryResult.id.videoId,
             title: queryResult.snippet.title,
+            time: td,
             imgUrl: queryResult.snippet.thumbnails.medium.url
         }
     });
     results.youtube = youtubeData
+        // results.youtube = searchResults
 }
 
 module.exports.stackoverflow = async(query_parameter) => {
