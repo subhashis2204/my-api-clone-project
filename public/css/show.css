@@ -8,6 +8,8 @@ body {
 }
 
 .window {
+    width: 100%;
+    min-height: 100%;
     background-color: #e9ecef;
 }
 
@@ -16,60 +18,15 @@ body {
     padding-right: 1rem;
 }
 
+.inner-window {
+    padding: 1rem;
+}
+
 .inner-window-header {
     display: flex;
     align-items: center;
     justify-content: center;
     position: static;
-}
-
-.inner-window {
-    padding: 1rem;
-}
-
-.card-yt-outer {
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-.card-yt {
-    display: flex;
-    gap: 0.5rem;
-    align-items: flex-start;
-    justify-content: flex-start;
-    margin: 1rem auto;
-    border-radius: 1rem;
-    padding: 1rem;
-    background-color: white;
-    transition: all 0.3s ease-in-out;
-}
-
-.card-yt:hover {
-    transform: translateY(-3px);
-    -webkit-box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.50);
-    -moz-box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.50);
-    box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.50);
-}
-
-.card-yt-img {
-    border-radius: 1rem;
-}
-
-.card-yt-description {
-    overflow: hidden;
-}
-
-.card-yt-content {
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin: 0;
-}
-
-.card-yt-content-time {
-    color: #2b2d42;
 }
 
 .scrollbar::-webkit-scrollbar-track {
@@ -85,25 +42,4 @@ body {
 .scrollbar::-webkit-scrollbar-thumb {
     border-radius: 8px;
     background-color: #3e3e3e;
-}
-
-@media (min-width: 769px) and (max-width: 1000px) {
-    .card-yt {
-        flex-direction: column;
-    }
-}
-
-@media (min-width: 768px) {
-    .window {
-        width: 50%;
-        height: 50%;
-        float: left;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        /* align-items: center;
-        justify-content: center; */
-    }
-    .card-yt-description {
-        margin-left: 0.2rem;
-    }
 }

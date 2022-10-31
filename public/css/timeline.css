@@ -1,0 +1,64 @@
+.timeline-btn-box {
+    display: none;
+}
+
+@media(min-width: 481px) {
+    .timeline {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .timeline-btn-box {
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .timeline-content-box {
+        width: 100%;
+    }
+    .btn-border {
+        border: none;
+        margin: auto 2rem;
+        cursor: pointer;
+    }
+    #btn-yt {
+        height: 50px;
+        width: 50px;
+        background: url('/images/youtube.svg');
+    }
+    #btn-yt {
+        height: 50px;
+        width: 50px;
+        background: url('/images/youtube.svg');
+    }
+    #btn-st {
+        height: 45px;
+        width: 45px;
+        background: url('https://img.icons8.com/external-tal-revivo-color-tal-revivo/45/000000/external-stack-overflow-is-a-question-and-answer-site-for-professional-logo-color-tal-revivo.png');
+        background-color: white;
+        background-size: cover;
+    }
+    #btn-gs {
+        height: 50px;
+        width: 50px;
+        background: url('/images/google.svg');
+        background-color: white;
+        background-size: cover;
+    }
+    #btn-gh {
+        height: 60px;
+        width: 60px;
+        background: url('/images/github.svg');
+        background-color: white;
+        background-size: cover;
+    }
+    .active {
+        display: block;
+    }
+    .inactive {
+        display: none;
+    }
+}

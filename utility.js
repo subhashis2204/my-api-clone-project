@@ -1,5 +1,3 @@
-// const { timeDifferenceCalculator } = require("time-difference-calculator")
-
 let results = require('./data')
 const axios = require('axios')
 
@@ -37,24 +35,28 @@ module.exports.youtube = async(query_parameter) => {
         return `${hrs} hrs ago.`
     }
 
-    const response = await youtube.search.list({
-        part: 'snippet',
-        q: query_parameter,
-        type: 'video',
-        maxResults: 10
-    })
-    const searchResults = response.data.items
-    const youtubeData = searchResults.map(queryResult => {
-        const td = timeDifferenceCalculator(queryResult.snippet.publishTime)
-        return {
-            id: queryResult.id.videoId,
-            title: queryResult.snippet.title,
-            time: td,
-            imgUrl: queryResult.snippet.thumbnails.medium.url
-        }
-    });
-    results.youtube = youtubeData
-        // results.youtube = searchResults
+    try {
+        const response = await youtube.search.list({
+            part: 'snippet',
+            q: query_parameter,
+            type: 'video',
+            maxResults: 10
+        })
+        const searchResults = response.data.items
+        const youtubeData = searchResults.map(queryResult => {
+            const td = timeDifferenceCalculator(queryResult.snippet.publishTime)
+            return {
+                id: queryResult.id.videoId,
+                title: queryResult.snippet.title,
+                time: td,
+                imgUrl: queryResult.snippet.thumbnails.medium.url
+            }
+        });
+        results.youtube = youtubeData
+    } catch (e) {
+        results.youtube = {}
+    }
+    // results.youtube = searchResults
 }
 
 module.exports.stackoverflow = async(query_parameter) => {
@@ -66,17 +68,22 @@ module.exports.stackoverflow = async(query_parameter) => {
         site: "stackoverflow"
     }
     const baseUrl = `https://api.stackexchange.com/2.3/search`
-    const response = await axios.get(baseUrl, { params })
 
-    const searchResults = response.data.items
-    const stackoverflowData = searchResults.map(searchResult => {
-        return {
-            title: searchResult.title,
-            url: searchResult.link,
-            tags: searchResult.tags
-        }
-    })
-    results.stackoverflow = stackoverflowData
+    try {
+        const response = await axios.get(baseUrl, { params })
+
+        const searchResults = response.data.items
+        const stackoverflowData = searchResults.map(searchResult => {
+            return {
+                title: searchResult.title,
+                url: searchResult.link,
+                tags: searchResult.tags
+            }
+        })
+        results.stackoverflow = stackoverflowData
+    } catch (e) {
+        results.stackoverflow = {}
+    }
 }
 
 module.exports.googleSearch = async(query_parameter) => {
@@ -87,17 +94,21 @@ module.exports.googleSearch = async(query_parameter) => {
     }
     const baseUrl = "https://api.scaleserp.com/search";
 
-    const response = await axios.get(baseUrl, { params })
-    const searchResults = response.data.organic_results
+    try {
+        const response = await axios.get(baseUrl, { params })
+        const searchResults = response.data.organic_results
 
-    const googleSearchData = searchResults.map(searchResult => {
-        return {
-            title: searchResult.title,
-            url: searchResult.link,
-            description: searchResult.snippet
-        }
-    })
-    results.googleSearch = googleSearchData
+        const googleSearchData = searchResults.map(searchResult => {
+            return {
+                title: searchResult.title,
+                url: searchResult.link,
+                description: searchResult.snippet
+            }
+        })
+        results.googleSearch = googleSearchData
+    } catch (e) {
+        results.googleSearch = {}
+    }
 }
 
 module.exports.github = async(query_parameter) => {
@@ -105,17 +116,21 @@ module.exports.github = async(query_parameter) => {
         q: query_parameter
     }
     const baseUrl = `https://api.github.com/search/repositories`
-        // const searchUrl = `${baseUrl}/repositories?q=${query_parameter}`
 
-    const response = await axios.get(baseUrl, { params })
+    try {
+        const response = await axios.get(baseUrl, { params })
 
-    const searchResults = response.data.items
-    const githubData = searchResults.map(searchResult => {
-        return {
-            title: searchResult.full_name,
-            url: searchResult.html_url,
-            description: searchResult.description
-        }
-    })
-    results.github = githubData
+        const searchResults = response.data.items
+        const githubData = searchResults.map(searchResult => {
+            return {
+                title: searchResult.full_name,
+                url: searchResult.html_url,
+                description: searchResult.description
+            }
+        })
+        results.github = githubData
+    } catch (e) {
+        results.github = {}
+    }
+
 }
