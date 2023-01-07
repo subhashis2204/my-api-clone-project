@@ -1,3 +1,5 @@
+// import { Masonry } from "masonry-layout"
+
 const yt = document.querySelector("#btn-yt")
 const st = document.querySelector("#btn-st")
 const gs = document.querySelector("#btn-gs")
@@ -22,3 +24,15 @@ buttons.forEach(button => {
         content[idx].classList.remove('inactive')
     })
 })
+
+
+// gh.addEventListener('click', () => {
+//     const grid = document.querySelector(".inner-window-gh")
+//     const masonry = new Masonry(grid)
+//     console.log(grid)
+// })
+
+// var colcade = new colcade('.grid', {
+//     // columns: '.grid-col',
+//     items: '.grid-item'
+// });

@@ -44,7 +44,7 @@
                                 </a>
                                             <div class="card-yt-description">
                                                 <p class="card-yt-content">
-                                                    <%- results.youtube[i].title.substring(0, 100) %>
+                                                    <%- results.youtube[i].title %>
                                                 </p>
                                                 <span class="card-yt-content-time"><%= results.youtube[i].time %></span>
                                             </div>
@@ -134,13 +134,31 @@
                                         <a href="<%= results.github[i].url %>">
                                             <%= results.github[i].title %>
                                         </a>
-                                        <% if(results.github[i].description !== null){ %>
-                                            <p>
-                                                <%= results.github[i].description.substring(0, 100) %>
-                                            </p>
-                                            <% } %>
+                                        <!-- <% if(results.github[i].description !== null){ %> -->
+                                        <p class="card-gh-content">
+                                            <%= results.github[i].description   %>
+                                        </p>
+                                        <!-- <% } %> -->
                                     </div>
                                     <% } %>
+
+
+
+                                        <!-- <div class="grid">
+                                            <div class="grid-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, sapiente unde. Natus ad neque sequi quibusdam, consequatur sapiente quam eos atque consectetur iusto qui ducimus quisquam blanditiis! Quam, corporis
+                                                facilis.</div>
+                                            <div class="grid-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere odit in, labore laboriosam ullam perspiciatis reprehenderit asperiores modi error ea obcaecati laborum voluptatem nemo optio? Maiores, cupiditate
+                                                quaerat? Ea, necessitatibus.
+                                            </div>
+                                            <div class="grid-item">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis neque consectetur maiores in soluta nulla cumque vero, facere non dolorum quisquam enim, nam aspernatur, similique exercitationem quam praesentium
+                                                laboriosam incidunt.</div>
+                                            <div class="grid-item">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis neque consectetur maiores in soluta nulla cumque vero, facere non dolorum quisquam enim, nam aspernatur, similique exercitationem quam praesentium
+                                                laboriosam incidunt.</div>
+                                            <div class="grid-item">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis neque consectetur maiores in soluta nulla cumque vero, facere non dolorum quisquam enim, nam aspernatur, similique exercitationem quam praesentium
+                                                laboriosam incidunt.</div>
+                                            <div class="grid-item">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis neque consectetur maiores in soluta nulla cumque vero, facere non dolorum quisquam enim, nam aspernatur, similique exercitationem quam praesentium
+                                                laboriosam incidunt.</div>
+                                        </div> -->
                             </div>
 
                 </div>
@@ -152,3 +170,7 @@
 </body>
 
 </html>
+
+
+
+jXshfiLKt3QD0zJZ
