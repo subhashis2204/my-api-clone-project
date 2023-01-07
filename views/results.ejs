@@ -33,24 +33,24 @@
                     </div>
                     <div class="inner-window-yt">
                         <% if(results.youtube.length === 0) {%>
-                            <h2>No results found on youtube</h2>
-                            <% } %>
+                        <h2>No results found on youtube</h2>
+                        <% } %>
 
-                                <% for(let i = 0; i < results.youtube.length; i++) { %>
-                                    <div class="card-yt-outer">
-                                        <div class="card-yt">
-                                            <a href="https://www.youtube.com/watch?v=<%= results.youtube[i].id %> ">
+                        <% for(let i = 0; i < results.youtube.length; i++) { %>
+                        <div class="card-yt-outer">
+                            <div class="card-yt">
+                                <a href="https://www.youtube.com/watch?v=<%= results.youtube[i].id %> ">
                                     <img class="card-yt-img" src="<%= results.youtube[i].imgUrl %> " alt="Thumbnail">
                                 </a>
-                                            <div class="card-yt-description">
-                                                <p class="card-yt-content">
-                                                    <%- results.youtube[i].title %>
-                                                </p>
-                                                <span class="card-yt-content-time"><%= results.youtube[i].time %></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <% } %>
+                                <div class="card-yt-description">
+                                    <p class="card-yt-content">
+                                        <%- results.youtube[i].title %>
+                                    </p>
+                                    <span class="card-yt-content-time"><%= results.youtube[i].time %></span>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
                     </div>
 
                 </div>
@@ -63,24 +63,24 @@
                         <h2>StackOverflow Search Results : </h2>
                     </div>
                     <% if(results.stackoverflow.length === 0) {%>
-                        <h2>No results found on Stack Overflow</h2>
-                        <% } %>
+                    <h2>No results found on Stack Overflow</h2>
+                    <% } %>
 
-                            <div class="inner-window-st">
-                                <% for(let i = 0; i < results.stackoverflow.length; i++) { %>
-                                    <div class="card-st">
-                                        <a href="<%= results.stackoverflow[i].url %>">
-                                            <%- results.stackoverflow[i].title %>
-                                        </a>
-                                        <div class="card-st-tags-list">
-                                            <!-- tags : -->
-                                            <% for(let tag of results.stackoverflow[i].tags) {%>
-                                                <span class="card-st-tags"><%= tag %> </span>
-                                                <% } %>
-                                        </div>
-                                    </div>
-                                    <% } %>
+                    <div class="inner-window-st">
+                        <% for(let i = 0; i < results.stackoverflow.length; i++) { %>
+                        <div class="card-st">
+                            <a href="<%= results.stackoverflow[i].url %>">
+                                <%- results.stackoverflow[i].title %>
+                            </a>
+                            <div class="card-st-tags-list">
+                                <!-- tags : -->
+                                <% for(let tag of results.stackoverflow[i].tags) {%>
+                                <span class="card-st-tags"><%= tag %> </span>
+                                <% } %>
                             </div>
+                        </div>
+                        <% } %>
+                    </div>
 
 
                 </div>
@@ -96,23 +96,23 @@
 
                     <!-- <h2>Google Search Results : </h2> -->
                     <% if(results.googleSearch.length === 0) {%>
-                        <h2>No results found on Google</h2>
-                        <% } %>
+                    <h2>No results found on Google</h2>
+                    <% } %>
 
-                            <div class="canvas-gs">
-                                <% for(let i = 0; i < results.googleSearch.length; i++) { %>
-                                    <div class="card-gs">
-                                        <a href="<%= results.googleSearch[i].url %>">
-                                            <%= results.googleSearch[i].title %>
-                                        </a>
-                                        <% if(results.googleSearch[i].description !== null){ %>
-                                            <p>
-                                                <%= results.googleSearch[i].description %>
-                                            </p>
-                                            <% } %>
-                                    </div>
-                                    <% } %>
-                            </div>
+                    <div class="canvas-gs">
+                        <% for(let i = 0; i < results.googleSearch.length; i++) { %>
+                        <div class="card-gs">
+                            <a href="<%= results.googleSearch[i].url %>">
+                                <%= results.googleSearch[i].title %>
+                            </a>
+                            <% if(results.googleSearch[i].description !== null){ %>
+                            <p>
+                                <%= results.googleSearch[i].description %>
+                            </p>
+                            <% } %>
+                        </div>
+                        <% } %>
+                    </div>
 
                 </div>
             </div>
@@ -126,25 +126,25 @@
                     </div>
 
                     <% if(results.github.length === 0) {%>
-                        <h2>No results found on Github</h2>
+                    <h2>No results found on Github</h2>
+                    <% } %>
+                    <div class="inner-window-gh">
+                        <% for(let i = 0; i < results.github.length; i++) { %>
+                        <div class="card-gt">
+                            <a href="<%= results.github[i].url %>">
+                                <%= results.github[i].title %>
+                            </a>
+                            <!-- <% if(results.github[i].description !== null){ %> -->
+                            <p class="card-gh-content">
+                                <%= results.github[i].description   %>
+                            </p>
+                            <!-- <% } %> -->
+                        </div>
                         <% } %>
-                            <div class="inner-window-gh">
-                                <% for(let i = 0; i < results.github.length; i++) { %>
-                                    <div class="card-gt">
-                                        <a href="<%= results.github[i].url %>">
-                                            <%= results.github[i].title %>
-                                        </a>
-                                        <!-- <% if(results.github[i].description !== null){ %> -->
-                                        <p class="card-gh-content">
-                                            <%= results.github[i].description   %>
-                                        </p>
-                                        <!-- <% } %> -->
-                                    </div>
-                                    <% } %>
 
 
 
-                                        <!-- <div class="grid">
+                        <!-- <div class="grid">
                                             <div class="grid-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, sapiente unde. Natus ad neque sequi quibusdam, consequatur sapiente quam eos atque consectetur iusto qui ducimus quisquam blanditiis! Quam, corporis
                                                 facilis.</div>
                                             <div class="grid-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere odit in, labore laboriosam ullam perspiciatis reprehenderit asperiores modi error ea obcaecati laborum voluptatem nemo optio? Maiores, cupiditate
@@ -159,7 +159,7 @@
                                             <div class="grid-item">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis neque consectetur maiores in soluta nulla cumque vero, facere non dolorum quisquam enim, nam aspernatur, similique exercitationem quam praesentium
                                                 laboriosam incidunt.</div>
                                         </div> -->
-                            </div>
+                    </div>
 
                 </div>
             </div>
@@ -170,7 +170,3 @@
 </body>
 
 </html>
-
-
-
-jXshfiLKt3QD0zJZ
